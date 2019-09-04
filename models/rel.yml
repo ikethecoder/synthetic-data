@@ -1,0 +1,18 @@
+name: company_address
+records: 10000
+output: company_addresses.csv
+relationship:
+  repeat_min: 1
+  repeat_max: 10
+  fields:
+    id:
+      type: Number.leading_zero_number
+      unique: true
+      digits: 12
+    company:
+      lookup: "company.id"
+    type:
+      type: Type.one_of
+      options: ["business", "registered", "correspondence"]
+    address_id:
+      lookup: "address.id"

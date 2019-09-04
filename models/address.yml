@@ -1,0 +1,23 @@
+
+name: address
+records: 10000
+output: addresses.csv
+fields:
+  id:
+    type: Number.leading_zero_number
+    unique: true
+    digits: 12
+  street_address:
+    type: Address.street_address
+  city:
+    type: Address.city
+  state:
+    type: Address.state
+  postal_code:
+    type: Address.postcode
+  country:
+    type: Address.country
+  latitude:
+    type: Address.latitude
+  longitude:
+    type: Address.longitude

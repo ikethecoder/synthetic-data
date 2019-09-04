@@ -1,0 +1,27 @@
+
+name: user_profile
+records: 10000
+output: user_profiles.csv
+fields:
+  id:
+    type: Number.leading_zero_number
+    unique: true
+    digits: 12
+  last_name:
+    type: Name.last_name
+  first_name:
+    type: Name.first_name
+  username:
+    type: Internet.username
+    specifier: 10
+  email:
+    type: Internet.email
+    name: "@first_name"
+  gender:
+    type: Gender.binary_type
+  nationalid:
+    type: IDNumber.valid
+  birthdate:
+    type: Date.birthday
+    min_age: 8
+    max_age: 75

@@ -1,0 +1,11 @@
+
+name: company
+records: 10000
+output: companies.csv
+fields:
+  id:
+    type: Number.leading_zero_number
+    unique: true
+    digits: 12
+  company_name:
+    type: Company.name
