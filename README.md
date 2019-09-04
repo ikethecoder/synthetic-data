@@ -20,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+Synthetic.generate "models/user_profile.yml"
+```
 
 ## Development
 
