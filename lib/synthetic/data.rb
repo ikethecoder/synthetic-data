@@ -10,7 +10,7 @@ module Synthetic
 
     def self.bulk(folder)
         Dir.entries(folder).select {|f| 
-            if File.exists? "#{folder}/#{f}" and not [".",".."].include? f then
+            if not File.directory? "#{folder}/#{f}" and not [".",".."].include? f then
                 puts "Process #{f}"
                 self.generate("#{folder}/#{f}")
             end
