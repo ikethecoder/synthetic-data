@@ -8,6 +8,15 @@ require "synthetic/data/version"
 module Synthetic
     class Error < StandardError; end
 
+    def self.bulk(folder)
+        Dir.entries(folder).select {|f| 
+            if not [".",".."].include? f then
+                puts "Process #{f}"
+                self.generate("#{folder}/#{f}")
+            end
+        }
+    end
+
     def self.generate(rules_file)
 
         Faker::Config.locale = 'en-CA'
@@ -26,10 +35,11 @@ module Synthetic
         
         start = Time.now.to_i
         
-        if File.exist?(definition['output']) then
-            print "Skipping - file already exists (#{definition['output']})"
+        output = "outputs/" + definition['output']
+        if File.exist?(output) then
+            print "Skipping - file already exists (#{output})"
         else
-            CSV.open(definition['output'], "wb", options) do |csv|
+            CSV.open(output, "wb", options) do |csv|
             
                 for i in 1..definition['records'] do
             
@@ -71,7 +81,7 @@ module Synthetic
                 end
             end
             
-            print "CSV file written (#{definition['output']})"
+            print "CSV file written (#{output})"
         end
     end
 end
