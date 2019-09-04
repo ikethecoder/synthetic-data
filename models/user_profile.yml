@@ -1,6 +1,6 @@
 
 name: user_profile
-records: 10000
+records: 5
 output: user_profiles.csv
 fields:
   id:
