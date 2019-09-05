@@ -83,9 +83,9 @@ module Synthetic
             end
         end
         
-        print "CSV file written (#{output})"
-        
-        self.check(rules_file, definition)
+        puts "CSV file written (#{output})"
+
+        self.register(rules_file, definition)
     end
 
     def self.register(filename, obj)
