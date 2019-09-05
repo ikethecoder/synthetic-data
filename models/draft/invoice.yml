@@ -1,0 +1,36 @@
+name: invoice
+records: 10000
+output: invoice.csv
+fields:
+  invoice_no:
+    type: Number.leading_zero_number
+    unique: true
+    digits: 12
+  invoice_reference:
+    type: Invoice.reference
+  invoice_date:
+    type: Date.backward
+    days: 365
+  status:
+    type: Type.one_of
+    options: ['Draft','WaitingForInventory','ReadyToShip','Shipped']
+    options: {'Draft':10,'WaitingForInventory':20,'ReadyToShip':20,'Shipped':20}
+stage:
+- items:
+    repeat_min: 0
+    repeat_max: 100
+    output: invoice_items.csv
+    fields:
+      invoice_no:
+        lookup: "@invoice_no"
+      unit_price:
+        type: Commerce.price
+      currency:
+        type: Currency.code
+      quantity:
+        type: Number.number
+        digits: 2
+      description:
+        type: Commerce.product_name
+      product_code:
+        type: Code.ean
