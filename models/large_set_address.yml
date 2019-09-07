@@ -1,6 +1,6 @@
 
 name: large_set_address
-records: 50000000
+records: 100000
 output: large_set_addresses.csv
 fields:
   id:
