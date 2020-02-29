@@ -14,14 +14,14 @@ GEM
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     json (2.2.0)
-    rake (10.4.2)
+    rake (13.0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   bundler (~> 2.0)
-  rake (~> 10.0)
+  rake (~> 13.0)
   synthetic-data!
 
 BUNDLED WITH
